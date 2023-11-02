@@ -1,0 +1,9 @@
+configure updates (software & updates ubuntu app, enable daily auto checking, recommended updates
+update system
+ensure 'ufw' and 'libpam-cracklib' is installed
+configure ufw
+ensure clamav is installed
+run clamscan
+check installed browser and change certain settings (block windows, addon warnings, block dangerous downloads/sites, disable password saving)
+edit pam files
+look for misc disallowed files, ensure not required by forensics and or in the readme
