@@ -19,5 +19,6 @@ apt install ufw -y
 ufw enable
 
 apt install clamav clamav-freshclam -y
-freshclam
-clamscan -r --bell -i /
+sudo systemctl enable clamav-freshclam.service
+gnome-terminal -- bash -c "sudo clamscan -r --bell /"
+echo "please input sudo password into new terminal for clamav scan."
