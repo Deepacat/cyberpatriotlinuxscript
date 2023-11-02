@@ -1,5 +1,5 @@
-configure updates (software & updates ubuntu app, enable daily auto checking, recommended updates
-update system
+! configure updates (software & updates ubuntu app, enable daily auto checking, recommended updates)
+! update system
 ensure 'ufw' and 'libpam-cracklib' is installed
 configure ufw
 ensure clamav is installed

@@ -1,18 +1,23 @@
 clear
 chmod 777 /etc/apt/apt.conf.d/10periodic
 cp /etc/apt/apt.conf.d/10periodic ~/Desktop/backups/
-echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Download-Upgradeable-Packages \"1\";\nAPT::Periodic::AutocleanInterval \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/10periodic
+echo "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Download-Upgradeable-Packages \"1\";\nAPT::Periodic::AutocleanInterval \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/10periodic
 chmod 644 /etc/apt/apt.conf.d/10periodic
-echo "Daily update checks, download upgradeable packages, autoclean interval, and unattended upgrade enabled."
+echo "auto updating has been enabled."
 
-clear
-apt update -qq
-apt upgrade -qq
-apt dist-upgrade -qq
-print "Ubuntu OS has checked for updates and has been upgraded."
+apt update -y
+apt upgrade -y
+apt dist-upgrade -y
+print "updated packages."
 
-clear
-apt autoremove -y -qq
-apt autoclean -y -qq
-apt clean -y -qq
-echo "All unused packages have been removed."
+apt autoremove -y
+apt autoclean -y
+apt clean -y
+echo "cleaned and removed unessecary packages."
+
+apt install ufw -y
+ufw enable
+
+apt install clamav clamav-freshclam -y
+freshclam
+clamscan -r --bell -i /
